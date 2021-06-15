@@ -19,7 +19,7 @@ const ModalMain = styled.div`
     width: 40%;
     top: 50%;
     left: 50%;
-    padding: 20px 30px;
+    padding: 30px;
     transform: translate(-50%, -50%);
     text-align: left;
 `;
