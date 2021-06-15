@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import Modal from './Modal';
 
 const CardContainer = styled.div`
     flex: 25%;
@@ -30,6 +32,7 @@ const Card = styled.div`
     background-repeat: no-repeat;
     width: 85%;
     margin: 20px auto;
+    cursor: pointer;
     height: 92%;
     border-radius: 8px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
@@ -63,15 +66,29 @@ const CardRating = styled.div`
 
 function Movie({ title, poster, release, description, rating, count }) {
 
+    const [modal, setModal] = useState(false);
+
+    function showModal() {
+        setModal(true);
+    };
+
+    function hideModal() {
+        setModal(false);
+    };
+
     return (
-        <CardContainer>
-            <Card image={poster}>
-                <CardRating>{rating}</CardRating>
-                <CardTitleContainer>
-                    <CardTitle>{title}</CardTitle>
-                </CardTitleContainer>
-            </Card>
-        </CardContainer>
+        <>
+            <CardContainer onClick={showModal}>
+                <Card image={poster}>
+                    <CardRating>{rating}</CardRating>
+                    <CardTitleContainer>
+                        <CardTitle>{title}</CardTitle>
+                    </CardTitleContainer>
+                </Card>
+            </CardContainer>
+            <Modal show={modal} close={hideModal} title={title} poster={poster} release={release}
+                description={description} rating={rating} count={count} />
+        </>
     )
 }
 
