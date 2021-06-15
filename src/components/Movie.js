@@ -57,10 +57,12 @@ const CardRating = styled.div`
     text-align: center;
     top: 30px;
     left: 10%;
+    font-size: 15px;
+    font-weight: bold;
     background-color: white;
     border: 1px solid black;
-    padding: 5px;
-    width: 20px;
+    padding: 10px;
+    min-width: 20px;
     border-radius: 50%;
 `;
 
