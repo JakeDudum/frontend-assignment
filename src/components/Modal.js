@@ -10,18 +10,38 @@ const ModalContainer = styled.div`
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
-    display: ${props => props.display}
+    display: ${props => props.display};
 `;
 
 const ModalMain = styled.div`
     position: fixed;
     background: white;
-    width: 40%;
+    width: 60%;
     top: 50%;
     left: 50%;
     padding: 30px;
     transform: translate(-50%, -50%);
     text-align: left;
+
+    @media(max-width: 1024px) {
+        width: 80%;
+    }
+
+    @media(max-width: 768px) {
+        top: 0;
+        left: 0;
+        margin-top: 10%;
+        margin-left: 5%;
+        transform: none;
+        height: 80%;
+        overflow: scroll;
+    }
+
+    @media(max-width: 480px) {
+        width: 85%;
+        margin: 0;
+        height: 100%;
+    }
 `;
 
 const ModalTitle = styled.h1`
@@ -32,6 +52,10 @@ const ModalTitle = styled.h1`
 
 const ModalContent = styled.div`
     display: flex;
+
+    @media(max-width: 768px) {
+        flex-wrap: wrap;
+    }
 `;
 
 const ModalImage = styled.img`
@@ -43,6 +67,10 @@ const ModalInfo = styled.div`
     margin-left: 20px;
     display: flex;
     flex-direction: column;
+
+    @media(max-width: 768px) {
+        margin-left: 0;
+    }
 `;
 
 const ModalRelease = styled.p`
