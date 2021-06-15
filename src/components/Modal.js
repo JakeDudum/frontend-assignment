@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import moment from 'moment';
 import './modal.css';
 
 const ModalContainer = styled.div`
@@ -73,7 +74,7 @@ function Modal({ show, close, title, poster, release, description, rating, count
                 <ModalContent>
                     <ModalImage src={poster} />
                     <ModalInfo>
-                        <ModalRelease><span style={{ fontWeight: "bold" }}>Release date:</span> {release}</ModalRelease>
+                        <ModalRelease><span style={{ fontWeight: "bold" }}>Release date:</span> {moment(release).format('MMMM DD, YYYY')}</ModalRelease>
                         <ModalSummary>{description}</ModalSummary>
                         <ModalRating><span style={{ fontWeight: "bold" }}>{rating}</span> / 10 ({count} total votes)</ModalRating>
                     </ModalInfo>
